@@ -18,13 +18,14 @@ function dataHas(propertyName) {
    const methodName = `dataHas('${propertyName}')`;
    return (req, res, next) => {
       req.log.debug({ __filename, methodName, body: req.body });
+      console.log("------------", req.body);
       const { data = {} } = req.body;
       const value = data[propertyName];
       if (value) {
          req.log.trace({ __filename, methodName, valid: true });
          return next();
       }
-      const message = `Subscribe must include a ${propertyName}`;
+      const message = `Subscribe must include ${propertyName}`;
       next({ status: 400, message: message });
       req.log.trace({ __filename, methodName, valid: false }, message);
    };
