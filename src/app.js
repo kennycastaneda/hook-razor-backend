@@ -9,6 +9,7 @@ const logger = require("./config/logger");
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 const subscribeRouter = require("./subscribe/subscribe.router");
+const checkoutRouter = require("./checkout/checkout.router");
 
 const app = express();
 ``;
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/subscribe", subscribeRouter);
+app.use("/checkout", checkoutRouter);
 
 app.use(notFound);
 app.use(errorHandler);

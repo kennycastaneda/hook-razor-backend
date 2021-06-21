@@ -18,7 +18,6 @@ function dataHas(propertyName) {
    const methodName = `dataHas('${propertyName}')`;
    return (req, res, next) => {
       req.log.debug({ __filename, methodName, body: req.body });
-      console.log("------------", req.body);
       const { data = {} } = req.body;
       const value = data[propertyName];
       if (value) {
@@ -31,6 +30,7 @@ function dataHas(propertyName) {
    };
 }
 
+const hasFromPage = dataHas("from_page");
 const hasEmail = dataHas("email");
 
 function validEmailLength(req, res, next) {
@@ -55,5 +55,11 @@ async function create(req, res) {
 }
 
 module.exports = {
-   create: [hasData, hasEmail, validEmailLength, asyncErrorBoundary(create)],
+   create: [
+      hasData,
+      hasEmail,
+      hasFromPage,
+      validEmailLength,
+      asyncErrorBoundary(create),
+   ],
 };
