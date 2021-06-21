@@ -27,7 +27,7 @@ async function create(req, res) {
       ],
       mode: "payment",
       success_url: `${process.env.HOOK_DOMAIN}/success`,
-      cancel_url: `${process.env.HOOK_DOMAIN}/cancel`,
+      cancel_url: `${process.env.HOOK_DOMAIN}/bag`,
    });
 
    res.json({ id: session.id });
