@@ -4,6 +4,7 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 async function create(req, res) {
    const { blackQuantity, whiteQuantity } = req.body.data;
+   console.log(PRICE);
 
    let line_items = [];
    if (blackQuantity > 0) {
@@ -14,7 +15,7 @@ async function create(req, res) {
                name: "Hook Razor Black",
                images: ["https://www.hookrazor.com/images/hook-shop-3.jpg"],
             },
-            unit_amount: PRICE,
+            unit_amount: price_1J4tKVL1APTgfm61Yz5QQ0Mq,
          },
          adjustable_quantity: {
             enabled: true,
@@ -34,7 +35,7 @@ async function create(req, res) {
                   "https://www.hookrazor.com/images/hook-shop-3-white.jpg",
                ],
             },
-            unit_amount: PRICE,
+            unit_amount: price_1J7MoZL1APTgfm61EWDOAQLR,
          },
          adjustable_quantity: {
             enabled: true,
