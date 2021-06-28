@@ -4,6 +4,7 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 async function create(req, res) {
    const { quantity } = req.body.data;
+   console.log("-----------------------", quantity);
    let line_items = [];
    if (quantity > 0) {
       line_items.push({
@@ -23,6 +24,7 @@ async function create(req, res) {
          quantity: quantity,
       });
    }
+   console.log("-----------------------", line_items);
 
    const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
