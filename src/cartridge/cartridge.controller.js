@@ -5,7 +5,7 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 async function create(req, res) {
    const { quantity } = req.body.data;
    let line_items = [];
-   if (blackQuantity > 0) {
+   if (quantity > 0) {
       line_items.push({
          price_data: {
             currency: "usd",
